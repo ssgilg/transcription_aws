@@ -22,20 +22,21 @@ Important Note: TranscriptionJobName must be unique
 2) command line + json file
 
     json file example:
-        {
-    "TranscriptionJobName": "test-multiple-5speakers-vocab-ig-json", 
-    "LanguageCode": "en-US", 
-    "MediaFormat": "wav", 
-    "Media": {
-        "MediaFileUri": "s3://test-scribe-ig-1/right.wav"
-             },
-    "Settings":{
-        "MaxSpeakerLabels": 5,
-        "ShowSpeakerLabels": true
+            {
+            "TranscriptionJobName": "test-multiple-5speakers-vocab-ig-json", 
+            "LanguageCode": "en-US", 
+            "MediaFormat": "wav", 
+            "Media": {
+                "MediaFileUri": "s3://test-scribe-ig-1/right.wav"
                 },
-    "VocabularyFileUri": "my_vocab.txt",
-    "VocabularyName": "my_vocab"
-    }
+            "Settings":{
+            "MaxSpeakerLabels": 5,
+            "ShowSpeakerLabels": true
+                },
+            "VocabularyFileUri": "my_vocab.txt",
+            "VocabularyName": "my_vocab"
+            }
+
 
     In command line;
         > aws transcribe start-transcription-job ^
@@ -45,6 +46,10 @@ Important Note: TranscriptionJobName must be unique
 
 3) via python script 
     see transcribe.py
+
+    > python transcribe.py 
+
+    this script will auutomatically save the transcription in a json file when the transcription process is done.
 
 How to get the results?
 
@@ -184,7 +189,7 @@ Add the information in a txt file
 
 TRANSCRIPTION JOBS
 
-
+we have a total of 6 small texts with ~ 550 words in total. The speakers read out load the text and record themselves. With aws transcribe we get the transcriptions for all speakers and all conversations.
 
 RESULTS
 

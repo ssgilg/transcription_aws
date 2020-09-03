@@ -83,7 +83,9 @@ How to improve transcription?
     
     --Example output vocabulary: Add vocab with word "data
     
-        "because I know Well I don't know but the the data billionaires transcribe can tell different speakers right So in my data our in my and my data I I have label for each speaker ..."
+        "because I know Well I don't know but the 
+        the data billionaires transcribe can tell different speakers right So in my data our
+        in my and my data I I have label for each speaker ..."
   
     In the firs transcription we get  "vegetable years" and when using a 
     vocabulary we get "data billionaires". The transcription was incorrect 
@@ -111,19 +113,22 @@ aws suggests:
     -Each sentence should contain punctuation.
 
 
-Steps to create custom language model
+Steps to create and custom language model
 
 -Save context and tuning (data) in s3 bucket in different folders.
 
 -Create the custom model in the graphic interface.
-            -specify tuning and training data locations
-            -minimum suggested for tuning data ~ 10 000 words
-            -minimum suggested for trainning data ~ 100 000 words
-            -can take about 7 hours
+
+        -specify tuning and training data locations
+        -minimum suggested for tuning data ~ 10 000 words
+        -minimum suggested for trainning data ~ 100 000 words
+        -can take about 7 hours
 
 
 
-For context we used wikipedia information with the following topics: "Functional programing", "Programing paradigm",
+For context we used wikipedia information with the following topics: 
+
+"Functional programing", "Programing paradigm",
 "Computer code",  "computer program", "debugging",
 "Object Oriented Programming",
 "NLP ML",
@@ -169,8 +174,24 @@ For context we used wikipedia information with the following topics: "Functional
 "car parking", "office supplies", "Visa process appointments",
 "academic degree college university transcripts"
 
-As tuning data we used transcriptions of videos from youtube that resemble weekly meetings from different teams in a tech company. This is no exactly the kinf if interaction we are trying to transcribe but it has real interactions beteen team members and a leader.
+As tuning data we used transcriptions of videos from youtube that resemble weekly meetings from different teams in a tech company. This is no exactly the kinf if interaction we are trying to transcribe but it has real interactions between team members and a leader.
+
+
+Add the information in a txt file
+
+    > python get_text_wiky.py
+
+
+TRANSCRIPTION JOBS
+
 
 
 RESULTS
 
+plain
+
+simple vocabulary
+
+customaized language model with context
+
+customaized language model with context + tuning data

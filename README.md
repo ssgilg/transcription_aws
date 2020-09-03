@@ -1,9 +1,7 @@
 # transcription_aws
 
 this is a summary of the use of aws-transcribe
-We tested 11 speakers with a variety in their speech features.
-The speakers read a text that resembles a scrum meeting. We took 
-the recordings and "clean" them with pyAudioAnalysis (See https://github.com/cbanuelosintek/audiopreprocess).
+We tested 11 speakers with a variety in their speech features. The speakers read a text that resembles a scrum meeting. We took the recordings and "clean" them with pyAudioAnalysis (See https://github.com/cbanuelosintek/audiopreprocess).
 
 
 The files have to be in wav format, if this is not the case, this can be converted to wav format (audiopreprocess).
@@ -15,8 +13,11 @@ Make a transcription Job, there are 3 ways
 Important Note: TranscriptionJobName must be unique 
 
 1) command line
+
         > aws transcribe start-transcription-job ^
+
         > --region us-east-1 ^
+
         > --cli-input-json file://my_file.json
 
 

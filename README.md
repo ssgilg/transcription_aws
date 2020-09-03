@@ -15,9 +15,7 @@ Important Note: TranscriptionJobName must be unique
 1) command line
 
         > aws transcribe start-transcription-job ^
-
         > --region us-east-1 ^
-
         > --cli-input-json file://my_file.json
 
 
@@ -76,19 +74,16 @@ How to improve transcription?
       It has to include pronunciation (IPA Chart With Sounds, 
       English to IPA Translator not currently working)
 
-    --Example output:
+    --Example output without vocabulary:
 
-        without vocabulary
     
         "because I know Well I don't know But the the vegetable years 
         transcribe can tell different speakers right So in my date our in my
          and my date I I have label for each speaker..." 
     
-         Add vocab with word "data"
+    --Example output vocabulary: Add vocab with word "data
     
-        "because I know Well I don't know but the the data billionaires
-         transcribe can tell different speakers right So in my data our in my
-         and my data I I have label for each speaker ..."
+        "because I know Well I don't know but the the data billionaires transcribe can tell different speakers right So in my data our in my and my data I I have label for each speaker ..."
   
     In the firs transcription we get  "vegetable years" and when using a 
     vocabulary we get "data billionaires". The transcription was incorrect 
@@ -100,15 +95,15 @@ How to improve transcription?
     Observations
     -when introducing a simple vocab improvment is not noticeble in good quality audio
 
--CUSTOM LANGUAGE MODELS
+- Custom language models
 
-    Train a model with context and tuning data
+ Train a model with context and tuning data
 
-    context: Information related to the topics in the audio
+-context: Information related to the topics in the audio
 
-    tuning: transcriptions of audios with events similar to what you want to transcribe
+-tuning: transcriptions of audios with events similar to what you want to transcribe
 
-    aws suggests:
+aws suggests:
 
     -We recommend using at least 100k and at most 10M words of running text.
     -We recommend each plain text file contain 200,000 words or more, but not exceeding 1GB in overall file size. 
@@ -116,14 +111,19 @@ How to improve transcription?
     -Each sentence should contain punctuation.
 
 
-    Save context and tuning (data) in s3 bucket in different folders.
-    Create the custom model in the graphic interface.
+Steps to create custom language model
+
+-Save context and tuning (data) in s3 bucket in different folders.
+
+-Create the custom model in the graphic interface.
             -specify tuning and training data locations
             -minimum suggested for tuning data ~ 10 000 words
             -minimum suggested for trainning data ~ 100 000 words
             -can take about 7 hours
 
- For context we used wikipedia information with the following topics: "Functional programing", "Programing paradigm",
+
+
+For context we used wikipedia information with the following topics: "Functional programing", "Programing paradigm",
 "Computer code",  "computer program", "debugging",
 "Object Oriented Programming",
 "NLP ML",
@@ -168,3 +168,9 @@ How to improve transcription?
 "vacations days off", "sick days going to doctor",
 "car parking", "office supplies", "Visa process appointments",
 "academic degree college university transcripts"
+
+As tuning data we used transcriptions of videos from youtube that resemble weekly meetings from different teams in a tech company. This is no exactly the kinf if interaction we are trying to transcribe but it has real interactions beteen team members and a leader.
+
+
+RESULTS
+
